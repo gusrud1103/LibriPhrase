@@ -5,18 +5,10 @@ It is derived from LibriSpeech corpus.
 #### Examples of LibriPhrase:
 |Anchor text|Easy negative text|Hard negative text|
 |----|----|----|
-|friend|guard<br/>comfort|frind|
-|||rend|
-||superior|trend|
-|the river|every morning|the giver|
-||town with|the liver|
-||not occurred|the rigor|
-|i mean to|and be made|i seen to|
-||be a banner|i mean you|
-||no less than|we mean to|
-|at the right time|began the kissing and|at the same time|
-||rubbing two bits of|at the one time|
-||conseil and land spent|knew the right time|
+|friend|guard<br/>comfort<br/>superior|frind<br/>rend<br/>trend|
+|the river|every morning<br/>town with<br/>not occurred|the giver<br/>the liver<br/>the rigor|
+|i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
+|at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
 ## Generating LibriPhrase
 #### Environment
 We work in this environment.
