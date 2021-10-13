@@ -9,26 +9,37 @@ It is derived from LibriSpeech corpus.
 |the river|every morning<br/>town with<br/>not occurred|the giver<br/>the liver<br/>the rigor|
 |i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
-## Generating LibriPhrase
+
+## Getting started
 ### Environment
-We work in this environment. 
+This work is performed in this environment. 
 * Python 3.x
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
-Clone and install package dependencies as follows.
+Clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
 pip install -r requirements.txt
 ```
 ### 2. Process
 At first, extract short phrase information from LibriSpeech.
-Secondly, extract
+Secondly, extract as ```mode```.
+#### Arguments
+* ```--input```: file name path
+* ```--output```: 
+* ```--mode```: ['samespk_easy', 'diffspk_easy', 'diffspk_hard', 'diffspk_all']
+* ```--numpair```:
+* ```--maxspk```:
+* ```--maxword```:
+Run the code.
 ```
 python3 libriphrase.py --mode 'diffspk_both'
 ```
 
 ### 3. Results
+## License
+Distributed under the MIT License. See ```LICENSE``` for more information.
 
 ## Citation
 If you use this code, please cite:
