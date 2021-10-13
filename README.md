@@ -18,7 +18,7 @@ It is derived from LibriSpeech corpus.
 ## Getting started
 ### Environment
 This work is performed in this environment. 
-* Python 3.x
+* Python 3.6.9
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
