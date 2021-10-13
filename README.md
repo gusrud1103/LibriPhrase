@@ -5,8 +5,8 @@ It is derived from LibriSpeech corpus.
 #### Examples of LibriPhrase:
 |Anchor text|Easy negative text|Hard negative text|
 |----|----|----|
-|friend|guard|frind|
-||comfort|rend|
+|friend|guard<br/>comfort|frind|
+|||rend|
 ||superior|trend|
 |the river|every morning|the giver|
 ||town with|the liver|
