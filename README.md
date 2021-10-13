@@ -36,7 +36,7 @@ Secondly, extract as ```mode```.
 * ```--mode```: ['samespk_easy', 'diffspk_easy', 'diffspk_hard', 'diffspk_all']
 * ```--numpair```:
 * ```--maxspk```:
-* ```--maxword```:
+* ```--maxword```: <br/>
 Run the code.
 ```
 python3 libriphrase.py --mode 'diffspk_both'
@@ -45,8 +45,8 @@ python3 libriphrase.py --mode 'diffspk_both'
 ### 3. Results
 ## Reference
 [1] Vassil Panayotov, Guoguo Chen, Daniel Povey, and San-jeev Khudanpur, “Librispeech:  an asr corpus based onpublic domain audio books,” in ICASSP, 2015.<br/>
-[2] Michael McAuliffe, Michaela Socolof,  Sarah  Mihuc,Michael Wagner, and Morgan Sonderegger, “Montrealforced  aligner: Trainable text-speech alignment using kaldi.,” in INTERSPEECH, 2017.<br/>
-[3] Vladimir I Levenshtein et al., “Binary codes capable ofcorrecting deletions, insertions, and reversals,” in Soviet physics doklady. Soviet Union, 1966, vol. 10, pp. 707–710.<br/>
+[2] Michael McAuliffe, Michaela Socolof,  Sarah  Mihuc,Michael Wagner, and Morgan Sonderegger, “Montreal forced  aligner: Trainable text-speech alignment using kaldi.,” in INTERSPEECH, 2017.<br/>
+[3] Vladimir I Levenshtein et al., “Binary codes capable of correcting deletions, insertions, and reversals,” in Soviet physics doklady. Soviet Union, 1966, vol. 10, pp. 707–710.<br/>
 [4] Jongseok Park, Kyubyong Kim, “g2pe,”https://github.com/Kyubyong/g2p, 2019.<br/>
 ## License
 Distributed under the MIT License. See ```LICENSE``` for more information.
