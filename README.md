@@ -31,18 +31,32 @@ pip install -r requirements.txt
 At first, extract short phrase information from LibriSpeech.
 Secondly, extract as ```mode```.
 #### Arguments
-* ```--input```: file name path
-* ```--output```: 
-* ```--mode```: ['samespk_easy', 'diffspk_easy', 'diffspk_hard', 'diffspk_all']
-* ```--numpair```:
-* ```--maxspk```:
-* ```--maxword```: <br/>
+* ```--input``` : file name path
+* ```--output``` : 
+* ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
+* ```--numpair``` :
+* ```--maxspk``` :
+* ```--maxword``` : <br/>
 Run the code.
 ```
-python3 libriphrase.py --mode 'diffspk_both'
+python3 libriphrase.py --mode 'diffspk_all'
 ```
 
 ### 3. Results
+Coloums:
+* ```anchor``` : the file path of the anchor wav file
+* ```anchor_spk``` : the speaker of the anchor wav file
+* ```anchor_text``` : the text of the anchor wav file
+* ```anchor_dur```: the duration of the anchor wav file
+* ```comparison```: the file path of the comparison wav file
+* ```comparison_spk``` : the speaker of the comparison wav file
+* ```comparison_text``` : the text of the comparison wav file
+* ```comparison_dur``` : the duration of the comparison wav file
+* ```type``` : the category of the comparison (it depned on ```mode```, so if ```mode`` is ```samespk_easy```, then ```samespk_positive```, ```samespk_easyneg``` are showed in the result dataframe.)
+**  
+* ```target``` : if anchor and comparison is same category, then ```1```, otherwise ```0```.
+* ```class``` : the number of words in the phrase
+
 ## Reference
 [1] Vassil Panayotov, Guoguo Chen, Daniel Povey, and San-jeev Khudanpur, “Librispeech:  an asr corpus based onpublic domain audio books,” in ICASSP, 2015.<br/>
 [2] Michael McAuliffe, Michaela Socolof,  Sarah  Mihuc,Michael Wagner, and Morgan Sonderegger, “Montreal forced  aligner: Trainable text-speech alignment using kaldi.,” in INTERSPEECH, 2017.<br/>
