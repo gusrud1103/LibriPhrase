@@ -1,5 +1,7 @@
 # Recipe for LibriPhrase
 ## About the dataset
+<img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp 
+<img src="https://img.shields.io/badge/apm/l/:packageName?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp 
 LibriPhrase is an open source dataset for user-defined keyword spotting.
 It is derived from LibriSpeech corpus.
 ### Examples of LibriPhrase:
@@ -11,9 +13,9 @@ It is derived from LibriSpeech corpus.
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
 ## Generating LibriPhrase
 ### Environment
-We work in this environment.
+We work in this environment. 
 * Python 3.x
-* Linux
+* Linux Ubuntu 18.04
 
 ### 1. Preparation
 Clone and install package dependencies as follows.
