@@ -52,9 +52,12 @@ Coloums:
 * ```comparison_spk``` : the speaker of the comparison wav file
 * ```comparison_text``` : the text of the comparison wav file
 * ```comparison_dur``` : the duration of the comparison wav file
-* ```type``` : the category of the comparison (it depned on ```mode```, so if ```mode`` is ```samespk_easy```, then ```samespk_positive```, ```samespk_easyneg``` are showed in the result dataframe.)
-**  
-* ```target``` : if anchor and comparison is same category, then ```1```, otherwise ```0```.
+* ```type``` : the category of the comparison (it depends on ```mode```, so if ```mode``` is ```samespk_easy```, then ```samespk_positive```, ```samespk_easyneg``` are showed in the type column.)
+>```samespk_easy``` : ```samespk_positive```, ```samespk_easyneg```
+>```diffspk_easy``` : ```diffspk_positive```, ```diffspk_easyneg```
+>```diffspk_hard``` : ```diffspk_positive```, ```diffspk_hardneg```
+>```diffspk_all``` : ```diffspk_positive```, ```diffspk_easyneg```, ```diffspk_hardneg```
+* ```target``` : if anchor and comparison is same category, then the value is ```1```, otherwise ```0```.
 * ```class``` : the number of words in the phrase
 
 ## Reference
