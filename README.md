@@ -1,7 +1,7 @@
 # Recipe for LibriPhrase
 ## About the dataset
 <img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp 
-<img src="https://img.shields.io/badge/apm/l/:packageName?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp 
+https://img.shields.io/github/license/gusrud1103/LibriPhrase
 LibriPhrase is an open source dataset for user-defined keyword spotting.
 It is derived from LibriSpeech corpus.
 ### Examples of LibriPhrase:
