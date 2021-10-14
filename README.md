@@ -22,15 +22,17 @@ This work is performed in this environment.
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
-Before started, prepare [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
-Clone the repository and install package dependencies as follows.
+Before started, please prepare the [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
+If downloaded complete, clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
 pip install -r requirements.txt
 ```
+
 ### 2. Process
-At first, extract short phrase information from LibriSpeech.
-Secondly, extract as ```mode```.
+At first, extract short phrase(consists of 1~4 words) with wav files from LibriSpeech. <br/>
+Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
+You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 #### Arguments
 * ```--input``` : file name path
 * ```--output``` : 
