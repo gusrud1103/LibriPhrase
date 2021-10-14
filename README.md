@@ -22,6 +22,7 @@ This work is performed in this environment.
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
+Before started, prepare [LibriSpeech ASR corpus](https://www.openslr.org/12).
 Clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
@@ -43,7 +44,7 @@ python3 libriphrase.py --mode 'diffspk_all'
 ```
 
 ### 3. Results
-Coloums:
+#### Coloums:
 * ```anchor``` : the file path of the anchor wav file
 * ```anchor_spk``` : the speaker of the anchor wav file
 * ```anchor_text``` : the text of the anchor wav file
@@ -73,7 +74,5 @@ Distributed under the MIT License. See ```LICENSE``` for more information.
 ## Citation
 If you use this code, please cite:
 ```
-  @misc{shin2021wake,
-    title={},
-    }
+{}
 ```
