@@ -22,7 +22,7 @@ This work is performed in this environment.
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
-Before started, prepare [LibriSpeech ASR corpus](https://www.openslr.org/12).
+Before started, prepare [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
 Clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
