@@ -14,7 +14,7 @@ It is derived from LibriSpeech corpus.
 |the river|every morning<br/>town with<br/>not occurred|the giver<br/>the liver<br/>the rigor|
 |i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
-
+<br/>
 ## Getting started
 ### Environment
 This work is performed in this environment. 
@@ -31,8 +31,15 @@ pip install -r requirements.txt
 
 ### 2. Process
 At first, extract short phrase(consists of 1~4 words) with wav files from LibriSpeech. <br/>
+```
+python3 shortphrase.py --libriroot 'LibriSpeech PATH' --newroot 'LibriShortPhrase PATH' --wordalign './data/~.csv' --output ''
+```
+<br/>
 Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
+```
+python3 libriphrase.py --mode 'diffspk_all'
+```
 #### Arguments
 * ```--input``` : file name path
 * ```--output``` : 
@@ -40,11 +47,11 @@ You can choose negative type(easy, hard) and speaker type(same, different) by ad
 * ```--numpair``` :
 * ```--maxspk``` :
 * ```--maxword``` : <br/>
-Run the code.
+<br/>
+All of the process can be done in one command line.
 ```
-python3 libriphrase.py --mode 'diffspk_all'
+./run.sh
 ```
-
 ### 3. Results
 #### Coloums:
 * ```anchor``` : the file path of the anchor wav file
