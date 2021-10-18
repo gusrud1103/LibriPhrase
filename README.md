@@ -14,7 +14,7 @@ It is derived from LibriSpeech corpus.
 |the river|every morning<br/>town with<br/>not occurred|the giver<br/>the liver<br/>the rigor|
 |i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
-<br/>
+
 ## Getting started
 ### Environment
 This work is performed in this environment. 
@@ -34,7 +34,7 @@ At first, extract short phrase(consists of 1~4 words) with wav files from LibriS
 ```
 python3 shortphrase.py --libriroot 'LibriSpeech PATH' --newroot 'LibriShortPhrase PATH' --wordalign './data/~.csv' --output ''
 ```
-<br/>
+
 Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 ```
@@ -47,7 +47,7 @@ python3 libriphrase.py --mode 'diffspk_all'
 * ```--numpair``` :
 * ```--maxspk``` :
 * ```--maxword``` : <br/>
-<br/>
+
 All of the process can be done in one command line.
 ```
 ./run.sh
