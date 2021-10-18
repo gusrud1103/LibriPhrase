@@ -38,7 +38,7 @@ python3 shortphrase.py --libriroot 'LibriSpeech PATH' --newroot 'LibriShortPhras
 * ```--libriroot``` : original LibriSpeech wav files path
 * ```--newroot``` : new short phrase version of LibriSpeech path
 * ```--wordalign``` : 
-* ```--output``` : 
+* ```--output``` : <br/>
 Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 ** It takes few days if you use train-other-500.
@@ -53,7 +53,7 @@ python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk
 * ```--maxspk``` :
 * ```--maxword``` : <br/>
 
-All of the above process can be done just in one command line.
+(Quick) All of the above process can be done just in one command line.
 ```
 ./run.sh
 ```
