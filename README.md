@@ -39,6 +39,7 @@ python3 shortphrase.py --libriroot 'LibriSpeech PATH' --newroot 'LibriShortPhras
 * ```--newroot``` : new short phrase version of LibriSpeech path
 * ```--wordalign``` : 
 * ```--output``` : <br/>
+
 Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 ** It takes few days if you use train-other-500.
