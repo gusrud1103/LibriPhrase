@@ -26,12 +26,13 @@ Before started, please prepare the [LibriSpeech ASR corpus](https://www.openslr.
 If downloaded complete, clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
+cd LibriPhrase
 pip install -r requirements.txt
+./run.sh
 ```
 
 ### 2. Process
-At first, extract short phrase(consists of 1~4 words) from LibriSpeech. <br/>
-And then, construct anchor, positive, negative for LibriPhrase. <br/>
+At first, extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 ** It takes few days if you use train-other-500.
 ```
@@ -47,10 +48,6 @@ python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk
 * ```--maxspk``` :
 * ```--maxword``` : <br/>
 
-(Quick) All of the above process can be done just in one command line.
-```
-./run.sh
-```
 ### 3. Results
 #### Coloums:
 * ```anchor``` : the file path of the anchor wav file
