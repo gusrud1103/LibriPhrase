@@ -30,24 +30,17 @@ pip install -r requirements.txt
 ```
 
 ### 2. Process
-At first, extract short phrase(consists of 1~4 words) with wav files from LibriSpeech. <br/>
-```
-python3 shortphrase.py --libriroot 'LibriSpeech PATH' --newroot 'LibriShortPhrase PATH' --wordalign './data/~.csv' --output ''
-```
-#### Arguments
-* ```--libriroot``` : original LibriSpeech wav files path
-* ```--newroot``` : new short phrase version of LibriSpeech path
-* ```--wordalign``` : 
-* ```--output``` : <br/>
-
-Secondly, construct anchor, positive, negative for LibriPhrase. <br/>
+At first, extract short phrase(consists of 1~4 words) from LibriSpeech. <br/>
+And then, construct anchor, positive, negative for LibriPhrase. <br/>
 You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 ** It takes few days if you use train-other-500.
 ```
 python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk 300 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
-* ```--input``` : short phrase file name with path (=```output``` argument in shortphrase.py)
+* ```--libriroot``` : original LibriSpeech wav files path
+* ```--newroot``` : new short phrase version of LibriSpeech path
+* ```--wordalign``` : 
 * ```--output``` : LibriPhrase file name with path
 * ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 * ```--numpair``` :
