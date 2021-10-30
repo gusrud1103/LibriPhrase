@@ -28,25 +28,25 @@ If downloaded complete, clone the repository and install package dependencies as
 git clone https://github.com/gusrud1103/LibriPhrase.git
 cd LibriPhrase
 pip install -r requirements.txt
-./run.sh
 ```
 
 ### 2. Process
-At first, extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
-You can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
+At first, it needs to extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
+Especially, you can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
+Finally, it will export wav files for the convenient usage. 
 ** It takes few days if you use train-other-500.
 ```
-python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk 300 --maxword 4 --mode 'diffspk_all'
+python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
 * ```--libriroot``` : original LibriSpeech wav files path
 * ```--newroot``` : new short phrase version of LibriSpeech path
-* ```--wordalign``` : 
+* ```--wordalign``` : word alignment information from ```data``` folder
 * ```--output``` : LibriPhrase file name with path
 * ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
-* ```--numpair``` :
-* ```--maxspk``` :
-* ```--maxword``` : <br/>
+* ```--numpair``` : the number of samples in each case 
+* ```--maxspk``` : the number of speakers (for reducing computation)
+* ```--maxword``` : the maximum number of words to construct short phrase <br/>
 
 ### 3. Results
 #### Coloums:
