@@ -45,17 +45,17 @@ Finally, it will export wav files for the convenient usage.
 ```
 or
 ```
-python3 libriphrase.py --input './data/' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
+python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 'new path(libriphrase wav files)' --input './data/librispeech_other_train_500h_all_utt.csv' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
-* ```--libriroot``` : original LibriSpeech wav files path
-* ```--newroot``` : new short phrase version of LibriSpeech path
+* ```--libripath``` : original path of LibriSpeech wav files
+* ```--newpath``` : new path for LibriPhrase wav files
 * ```--wordalign``` : word alignment information from ```data``` folder
 * ```--output``` : LibriPhrase file name with path
-* ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 * ```--numpair``` : the number of samples in each case 
 * ```--maxspk``` : the number of speakers (for reducing computation)
 * ```--maxword``` : the maximum number of words to construct short phrase <br/>
+* ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 
 ### 3. Results
 #### Coloums:
