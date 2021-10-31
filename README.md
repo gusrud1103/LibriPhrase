@@ -3,9 +3,9 @@
 LibriPhrase is an open source dataset for user-defined keyword spotting.
 It is derived from LibriSpeech corpus.
 * Source : LibriSpeech (ASR corpus) [1]
-* Alignment : Montreal Forced Aligner [2]
-* String distance metric : Levenshtein distance [3]
-* Unit : Phoneme-level (extract phoneme information from G2P [4])
+* Alignment : Montreal Forced Aligner [2][3]
+* String distance metric : Levenshtein distance [4]
+* Unit : Phoneme-level (extract phoneme information from G2P [5])
 
 ### Examples of LibriPhrase:
 |Anchor text|Easy negative text|Hard negative text|
@@ -23,6 +23,11 @@ This work is performed in this environment.
 
 ### 1. Preparation
 Before started, please prepare the [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
+Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1oUEOmINlwHVrT32b4XxQB3OkyEiL3buh?usp=sharing) and locate the files to data folder.
+```
+mkdir data
+cd data      # locate csv files in this folder
+```
 If downloaded complete, clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
@@ -74,9 +79,10 @@ python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk
 
 ## Reference
 [1] Vassil Panayotov, Guoguo Chen, Daniel Povey, and San-jeev Khudanpur, “Librispeech:  an asr corpus based onpublic domain audio books,” in ICASSP, 2015.<br/>
-[2] Michael McAuliffe, Michaela Socolof,  Sarah  Mihuc,Michael Wagner, and Morgan Sonderegger, “Montreal forced  aligner: Trainable text-speech alignment using kaldi.,” in INTERSPEECH, 2017.<br/>
-[3] Vladimir I Levenshtein et al., “Binary codes capable of correcting deletions, insertions, and reversals,” in Soviet physics doklady. Soviet Union, 1966, vol. 10, pp. 707–710.<br/>
-[4] Jongseok Park, Kyubyong Kim, “g2pe,”https://github.com/Kyubyong/g2p, 2019.<br/>
+[2] Loren Lugosch, Mirco Ravanelli, Patrick Ignoto, Vikrant Singh Tomar, and Yoshua Bengio, "Speech Model Pre-training for End-to-End Spoken Language Understanding", Interspeech 2019. <br/>
+[3] Michael McAuliffe, Michaela Socolof,  Sarah  Mihuc,Michael Wagner, and Morgan Sonderegger, “Montreal forced  aligner: Trainable text-speech alignment using kaldi.,” in INTERSPEECH, 2017.<br/>
+[4] Vladimir I Levenshtein et al., “Binary codes capable of correcting deletions, insertions, and reversals,” in Soviet physics doklady. Soviet Union, 1966, vol. 10, pp. 707–710.<br/>
+[5] Jongseok Park, Kyubyong Kim, “g2pe,”https://github.com/Kyubyong/g2p, 2019.<br/>
 ## License
 Distributed under the MIT License. See ```LICENSE``` for more information.
 
