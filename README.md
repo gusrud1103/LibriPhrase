@@ -54,7 +54,7 @@ python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 
 * ```--output``` : LibriPhrase file name with path
 * ```--numpair``` : the number of samples in each case 
 * ```--maxspk``` : the number of speakers (for reducing computation)
-* ```--maxword``` : the maximum number of words to construct short phrase <br/>
+* ```--maxword``` : the maximum number of words to construct short phrase (Select integer from 1 to 4) <br/>
 * ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 
 ### 3. Results
