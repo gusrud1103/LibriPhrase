@@ -45,7 +45,7 @@ Finally, it will export wav files for the convenient usage.
 ```
 or
 ```
-python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
+python3 libriphrase.py --input './data/' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
 * ```--libriroot``` : original LibriSpeech wav files path
