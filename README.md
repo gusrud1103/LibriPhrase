@@ -36,6 +36,10 @@ Especially, you can choose negative type(easy, hard) and speaker type(same, diff
 Finally, it will export wav files for the convenient usage. 
 ** It takes few days if you use train-other-500.
 ```
+./run.sh
+```
+or
+```
 python3 libriphrase.py --input './data/' --output './data/' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
