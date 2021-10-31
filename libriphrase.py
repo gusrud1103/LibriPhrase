@@ -10,8 +10,8 @@ from utils import *
 
 def get_parser():
   parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--libriroot', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_clean_wav/', help='root path of LibriSpeech (wav format)')
-  parser.add_argument('--newroot', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_testset_short_phrase/', help='new root path')
+  parser.add_argument('--libripath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_clean_wav/', help='root path of LibriSpeech (wav format)')
+  parser.add_argument('--newpath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_testset_short_phrase/', help='new root path')
   parser.add_argument('--wordalign', type=str, default='./data/librispeech_other_train_500h_all_utt.csv', help='word alignment (csv format)')
   parser.add_argument('--output', type=str, default='./data/testset_librispeech_other_train_500h_short_phrase.csv', help='output filename (csv format)')
   parser.add_argument('--numpair', type=int, default=3)
@@ -23,8 +23,8 @@ def get_parser():
 
 def main(args):
 
-  rootpath = args.libriroot
-  rootpath_new = args.newroot
+  rootpath = args.libripath
+  rootpath_new = args.newpath
   word_alignment = args.wordalign
   output_filename = args.output
   
