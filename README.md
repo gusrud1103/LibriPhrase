@@ -15,7 +15,16 @@ It is derived from LibriSpeech corpus.
 |i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
 
-### File 
+### Data pipeline
+```
+./libriphrase.py
+./utils.py
+./run.sh
+./requirements.txt
+data/
+  |
+  
+```
 
 ## Getting started
 ### Environment
@@ -40,7 +49,7 @@ pip install -r requirements.txt
 ### 2. Process
 At first, it needs to extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
 Especially, you can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
-Finally, it will export wav files for the convenient usage. 
+Finally, it will export wav files for the convenient usage. <br/>
 ** It takes few days if you use train-other-500.
 ```
 ./run.sh
