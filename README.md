@@ -15,6 +15,8 @@ It is derived from LibriSpeech corpus.
 |i mean to|and be made<br/>be a banner<br/>no less than|i seen to<br/>i mean you<br/>we mean to|
 |at the right time|began the kissing and<br/>rubbing two bits of<br/>conseil and land spent|at the same time<br/>at the one time<br/>knew the right time|
 
+### File 
+
 ## Getting started
 ### Environment
 This work is performed in this environment. 
@@ -48,9 +50,9 @@ or
 python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 'new path(libriphrase wav files)' --input './data/librispeech_other_train_500h_all_utt.csv' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
-* ```--libripath``` : original path of LibriSpeech wav files
-* ```--newpath``` : new path for LibriPhrase wav files
-* ```--wordalign``` : word alignment information from ```data``` folder
+* ```--libripath``` : Folder for LibriSpeech ASR corpus (wav files)
+* ```--newpath``` : Folder to save generated LibriPhrase wav files
+* ```--wordalign``` : word alignment information for LibriSpeech ASR corpus (Download csv files to ```data``` folder)
 * ```--output``` : LibriPhrase file name with path
 * ```--numpair``` : the number of samples in each case 
 * ```--maxspk``` : the number of speakers (for reducing computation)
@@ -58,7 +60,7 @@ python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 
 * ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 
 ### 3. Results
-#### Coloums:
+#### Columns:
 * ```anchor``` : the file path of the anchor wav file
 * ```anchor_spk``` : the speaker of the anchor wav file
 * ```anchor_text``` : the text of the anchor wav file
