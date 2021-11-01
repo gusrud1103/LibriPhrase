@@ -10,9 +10,9 @@ from utils import *
 
 def get_parser():
   parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--libripath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_clean_wav/', help='root path of LibriSpeech (wav format)')
-  parser.add_argument('--newpath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_testset_short_phrase/', help='new root path')
-  parser.add_argument('--wordalign', type=str, default='./data/librispeech_other_train_500h_all_utt.csv', help='word alignment (csv format)')
+  parser.add_argument('--libripath', type=str, default='/LibriSpeech_ASR_corpus/', help='Folder for LibriSpeech ASR corpus (wav format)')
+  parser.add_argument('--newpath', type=str, default='/LibriPhrase/', help='Folder to save generated LibriPhrase wav files')
+  parser.add_argument('--wordalign', type=str, default='./data/librispeech_other_train_500h_all_utt.csv', help='word alignment file (csv format)')
   parser.add_argument('--output', type=str, default='./data/testset_librispeech_other_train_500h_short_phrase.csv', help='output filename (csv format)')
   parser.add_argument('--numpair', type=int, default=3)
   parser.add_argument('--maxspk', type=int, default=1166, help='the maximum number of speakers (default: 1166)')
