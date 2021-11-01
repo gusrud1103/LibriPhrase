@@ -57,7 +57,7 @@ It is derived from LibriSpeech corpus.
                 ├── 126224/       
                 ├── ...
                 └── 126228/
-                    ├── 985-126228-0004_0.wav
+                    ├── 985-126228-0004_1word_0.wav
                     ...
 
 ```
