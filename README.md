@@ -21,9 +21,44 @@ It is derived from LibriSpeech corpus.
 ./utils.py
 ./run.sh
 ./requirements.txt
-data/
-  |
-  
+./data/
+  ├── librispeech_clean_dev_all_utt.csv
+  ├── ...
+  ├── librispeech_other_train_500h_all_utt.csv
+  ├── ...
+  ├── testset_librispeech_other_train_500h_short_phrase_1word.csv
+  ├── ...
+  └── testset_librispeech_other_train_500h_short_phrase_4word.csv
+/LibriSpeech_ASR_corpus/
+  ├── dev-clean/
+  ├── ...
+  └── train-other-500/
+       ├── BOOKS.TXT
+       ├── CHAPTERS.TXT
+       ├── ...
+       └── train-other-500/
+            ├── 1006/
+            ├── ...
+            └── 985/
+                ├── 126224/       
+                ├── ...
+                └── 126228/
+                    ├── 985-126228-0000.wav
+                    ...
+/LibriPhrase/
+  ├── dev-clean/
+  ├── ...
+  └── train-other-500/
+       └── train-other-500/
+            ├── 1006/
+            ├── ...
+            └── 985/
+                ├── 126224/       
+                ├── ...
+                └── 126228/
+                    ├── 985-126228-0004_0.wav
+                    ...
+
 ```
 
 ## Getting started
