@@ -23,13 +23,13 @@ def make_dic(df_word):
   return dic
 
 
-def save_wav(df, rootpath, rootpath_new):
+def save_wav(df, rootpath, rootpath_new, word_class):
   count_dic = make_dic(df)
   result = []
   for idx, row in tqdm(df.iterrows()):
     audio = AudioSegment.from_wav(rootpath + row['anchor'])
     audio = audio[row['anchor_start'] * 1000.0 : row['anchor_end'] * 1000.0]
-    new_filename = dirname(row['anchor']) + os.sep + splitext(basename(row['anchor']))[0] + '_' + str(count_dic[row['anchor']]) + '.wav'
+    new_filename = dirname(row['anchor']) + os.sep + splitext(basename(row['anchor']))[0] + '_' + word_class + '_' + str(count_dic[row['anchor']]) + '.wav'
 
     if os.path.isdir(dirname(rootpath_new + new_filename)) == False:
       os.makedirs(dirname(rootpath_new + new_filename))
@@ -39,7 +39,7 @@ def save_wav(df, rootpath, rootpath_new):
 
     audio2 = AudioSegment.from_wav(rootpath + row['comparison'])
     audio2 = audio2[row['comparison_start'] * 1000.0 : row['comparison_end'] * 1000.0]
-    new_filename2 = dirname(row['comparison']) + os.sep + splitext(basename(row['comparison']))[0] + '_' + str(count_dic[row['comparison']]) + '.wav'
+    new_filename2 = dirname(row['comparison']) + os.sep + splitext(basename(row['comparison']))[0] + '_' + word_class + '_' + str(count_dic[row['comparison']]) + '.wav'
 
     if os.path.isdir(dirname(rootpath_new + new_filename2)) == False:
       os.makedirs(dirname(rootpath_new + new_filename2))

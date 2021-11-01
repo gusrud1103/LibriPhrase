@@ -10,7 +10,7 @@ from utils import *
 
 def get_parser():
   parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--libripath', type=str, default='/LibriSpeech_ASR_corpus/', help='Folder for LibriSpeech ASR corpus (wav format)')
+  parser.add_argument('--libripath', type=str, default='/LibriSpeech_ASR_corpus/', help='Folder for LibriSpeech ASR corpus with wav files')
   parser.add_argument('--newpath', type=str, default='/LibriPhrase/', help='Folder to save generated LibriPhrase wav files')
   parser.add_argument('--wordalign', type=str, default='./data/librispeech_other_train_500h_all_utt.csv', help='word alignment file (csv format)')
   parser.add_argument('--output', type=str, default='./data/testset_librispeech_other_train_500h_short_phrase.csv', help='output filename (csv format)')
@@ -82,7 +82,7 @@ def main(args):
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
     print('-----start exporting wav files-------')
-    total_df = save_wav(total_df, rootpath, rootpath_new)
+    total_df = save_wav(total_df, rootpath, rootpath_new, str(i) + 'word')
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
     print('-----save csv file-------')
