@@ -29,6 +29,7 @@ It is derived from LibriSpeech corpus.
   ├── testset_librispeech_other_train_500h_short_phrase_1word.csv
   ├── ...
   └── testset_librispeech_other_train_500h_short_phrase_4word.csv
+  
 /LibriSpeech_ASR_corpus/
   ├── dev-clean/
   ├── ...
@@ -96,24 +97,24 @@ python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 
 #### Arguments
 * ```--libripath``` : Folder for LibriSpeech ASR corpus (wav files)
 * ```--newpath``` : Folder to save generated LibriPhrase wav files
-* ```--wordalign``` : word alignment information for LibriSpeech ASR corpus (Download csv files to ```data``` folder)
-* ```--output``` : LibriPhrase file name with path
-* ```--numpair``` : the number of samples in each case 
-* ```--maxspk``` : the number of speakers (for reducing computation)
-* ```--maxword``` : the maximum number of words to construct short phrase (Select integer from 1 to 4) <br/>
-* ```--mode``` : front part denotes consistency of speaker between anchor and comparison [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
+* ```--wordalign``` : Word alignment information for LibriSpeech ASR corpus (Download csv files to ```data``` folder)
+* ```--output``` : Output filename that containing the information about generated LibriPhrase in csv format
+* ```--numpair``` : The number of samples in each case 
+* ```--maxspk``` : The number of speakers (for reducing computation)
+* ```--maxword``` : The maximum number of words to construct short phrase (Select integer from 1 to 4) <br/>
+* ```--mode``` : The mode for comparison type (samespk/diffspk denote the consistency of the speaker between anchor and comparison and easy/hard/all denote negative type [```samespk_easy```, ```diffspk_easy```, ```diffspk_hard```, ```diffspk_all```]
 
 ### 3. Results
 #### Columns:
-* ```anchor``` : the file path of the anchor wav file
-* ```anchor_spk``` : the speaker of the anchor wav file
-* ```anchor_text``` : the text of the anchor wav file
-* ```anchor_dur```: the duration of the anchor wav file
-* ```comparison```: the file path of the comparison wav file
-* ```comparison_spk``` : the speaker of the comparison wav file
-* ```comparison_text``` : the text of the comparison wav file
-* ```comparison_dur``` : the duration of the comparison wav file
-* ```type``` : the category of the comparison (it depends on ```mode```, so if ```mode``` is ```samespk_easy```, then ```samespk_positive```, ```samespk_easyneg``` are showed in the type column.)
+* ```anchor``` : The file path of the anchor wav file
+* ```anchor_spk``` : The speaker of the anchor wav file
+* ```anchor_text``` : The text of the anchor wav file
+* ```anchor_dur```: The duration of the anchor wav file
+* ```comparison```: The file path of the comparison wav file
+* ```comparison_spk``` : The speaker of the comparison wav file
+* ```comparison_text``` : The text of the comparison wav file
+* ```comparison_dur``` : The duration of the comparison wav file
+* ```type``` : The category of the comparison (it depends on ```mode```, so if ```mode``` is ```samespk_easy```, then ```samespk_positive```, ```samespk_easyneg``` are showed in the type column.)
 >|mode|type category|
 >|----|--------|
 >|```samespk_easy```|```samespk_positive```, ```samespk_easyneg```|
@@ -135,7 +136,7 @@ Distributed under the MIT License. See ```LICENSE``` for more information.
 ## Citation
 If you use this code, please cite:
 ```
-@misc{LibriPhrase2021,
+@misc{libriphrase2021,
   author = {Shin, Hyeon-Kyeong Shin and Han, Hyewon and Kim, Doyeon and Chung, Soo-Whan and Kang, Hong-Goo},
   title = {LibriPhrase},
   year = {2021},
