@@ -70,16 +70,16 @@ This work is performed in this environment.
 
 ### 1. Preparation
 Before started, please prepare the [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
-Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1oUEOmINlwHVrT32b4XxQB3OkyEiL3buh?usp=sharing) and locate the files to data folder.
-```
-mkdir data
-cd data      # locate csv files in this folder
-```
 If downloaded complete, clone the repository and install package dependencies as follows.
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
 cd LibriPhrase
 pip install -r requirements.txt
+```
+Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1oUEOmINlwHVrT32b4XxQB3OkyEiL3buh?usp=sharing) and locate the files to data folder.
+```
+mkdir data
+cd data      # locate csv files in this folder
 ```
 
 ### 2. Process
