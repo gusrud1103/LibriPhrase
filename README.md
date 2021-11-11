@@ -86,7 +86,7 @@ cd data      # locate csv files in this folder
 At first, it needs to extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
 Especially, you can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 Finally, it will export wav files for the convenient usage. <br/>
-** It takes few days if you use train-other-500.
+** It takes around 4 days if you use train-other-500 in ```diffspk_all```(maximum case).
 ```
 ./run.sh
 ```
