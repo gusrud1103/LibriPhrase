@@ -121,8 +121,8 @@ python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 
 >|```diffspk_easy```|```diffspk_positive```, ```diffspk_easyneg```|
 >|```diffspk_hard```|```diffspk_positive```, ```diffspk_hardneg```|
 >|```diffspk_all```|```diffspk_positive```, ```diffspk_easyneg```, ```diffspk_hardneg```|
-* ```target``` : if anchor and comparison is same category, then the value is ```1```, otherwise ```0```.
-* ```class``` : the number of words in the phrase
+* ```target``` : If a test sample (comparison) matches with the given anchor (text), the value is ```1```, otherwise ```0```. 
+* ```class``` : The number of words in the phrase
 
 ## Reference
 [1] Vassil Panayotov, Guoguo Chen, Daniel Povey, and San-jeev Khudanpur, “Librispeech:  an asr corpus based onpublic domain audio books,” in ICASSP, 2015.<br/>
