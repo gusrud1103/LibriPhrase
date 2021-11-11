@@ -83,10 +83,10 @@ cd data      # locate csv files in this folder
 ```
 
 ### 2. Process
-At first, it needs to extract short phrase(consists of 1~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
+At first, it needs to extract short phrase(consists of 1\sim4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
 Especially, you can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
 Finally, it will export wav files for the convenient usage. <br/>
-** When you use train-other-500 dataset, it takes around 2~4 days accroding to the ```mode```.
+** When you use train-other-500 dataset, it takes around 2\sim4 days accroding to the ```mode```.
 ```
 ./run.sh
 ```
