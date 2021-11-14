@@ -107,7 +107,7 @@ def make_k_spk_dict(df, k):
   # extract speaker list by counting spk's words (k speakers)
   spk_lst = [dirname(af).split('/')[-2] for af in df['audio_filename']]
   spk_dic = dict(Counter(spk_lst).most_common(k))
-  print('# of spk in dictionary = ', len(spk_dic))
+  print('# of speaker in dictionary = ', len(spk_dic))
 
   return spk_dic
 
@@ -150,7 +150,7 @@ def extract_total_word(df, word_lst, g2p):
   
   # extract total word in specific speakers
   total_word_dic = defaultdict(list)
-  for i in tqdm(range(len(word_lst))):
+  for i in range(len(word_lst)):
     total_word_dic[word_lst[i]].extend([phn.replace('0', '').replace('1', '').replace('2', '') for phn in g2p(word_lst[i])])
  
   return total_word_dic 
@@ -161,7 +161,7 @@ def make_hard_negative(anchor_word_dic, total_word_dic, num_neg, word_class):
   # hard_negative: same or different speaker, hard negative using levenshtien distance
 
   max_dist = int(5 * (word_class + 2)) # to reduce computation in levenshtein
-  print('max_dist = ', max_dist)
+  #print('max_dist = ', max_dist)
 
   hard_neg_dic = defaultdict(list)
 
@@ -187,7 +187,6 @@ def make_negative(hard_neg_dic, df_dic_key, df_result_pos, num_neg, mode, word_c
   anchor_cnt = {(row['anchor_spk'], row['anchor_text'], row['anchor'], row['anchor_start'], row['anchor_end']): 0 for idx, row in df_result_pos.iterrows()}
 
 
-  print('len(df_result_pos) = ', len(df_result_pos))
   for idx, row in tqdm(df_result_pos.iterrows()):
     k_tuple = (row['anchor_spk'], row['anchor_text'], row['anchor'], row['anchor_start'], row['anchor_end'])
     if mode in ['diffspk_hard', 'diffspk_all']:

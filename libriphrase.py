@@ -54,8 +54,9 @@ def main(args):
 
   print('Step 4 : Extract positive and negative samples')
   for i in range(1, max_num_words + 1):
+
     # extract 'df' and 'word_lst' which are only included word_class
-    print('-----extract df word class {}------'.format(i))
+    print('------extract df word class {}------'.format(i))
     df_word_class = extract_df_word_class(df, i)
     word = [row['text'] for idx, row in df_word_class.iterrows()]
     word_lst = list(set(word))
@@ -78,8 +79,8 @@ def main(args):
       hard_neg_dic = None
     df_result_neg = make_negative(hard_neg_dic, df_dic_key, df_result_pos, num_neg, mode, word_class=i)
 
-    print('len(df_result_pos) = ', len(df_result_pos))
-    print('len(df_result_neg) = ', len(df_result_neg))
+    print('# of positive case rows = ', len(df_result_pos))
+    print('# of negative case rows = ', len(df_result_neg))
 
     # merge and save 'df_result_pos' and 'df_result_neg'
     total_df = pd.concat([df_result_pos, df_result_neg], ignore_index=True)
@@ -89,11 +90,11 @@ def main(args):
     total_df = save_wav(total_df, rootpath, rootpath_new, str(i) + 'word')
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
-    print('------------save csv file-----------')
+    print('-----------save csv file------------')
     total_df.to_csv(splitext(output_filename)[0] + '_' + str(i) + 'word' + splitext(output_filename)[1], index=False)
-    print('finish {} word class'.format(i))   
+    print('* Finish {} word class'.format(i))   
      
-    print('time check: ', (time.clock() - start_time) / (60 * 60), 'hours')
+    print('* Time check: ', (time.clock() - start_time) / (60 * 60), 'hours')
 
 if __name__ == '__main__':
   
