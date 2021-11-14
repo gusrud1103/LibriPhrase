@@ -106,9 +106,8 @@ def make_k_spk_dict(df, k):
 
   # extract speaker list by counting spk's words (k speakers)
   spk_lst = [dirname(af).split('/')[-2] for af in df['audio_filename']]
-  print('len(Counter(spk_lst)) = ', len(Counter(spk_lst)))
   spk_dic = dict(Counter(spk_lst).most_common(k))
-  print('len(spk_dic) = ', len(spk_dic))
+  print('# of spk in dictionary = ', len(spk_dic))
 
   return spk_dic
 
@@ -123,7 +122,6 @@ def extract_anchor(df, spk_dic, num_anchor, num_pos):
     spk_id = dirname(row['audio_filename']).split('/')[-2]
     if spk_id in list(spk_dic.keys()):
       word_cnt_dic[spk_id].append(row['text'])
-  print('len(word_cnt_dic) = ', len(word_cnt_dic))
 
   ## extract over (num_anchor + num_pos) words for selecting anchor  
   anchor_word_dic = defaultdict(list)
@@ -141,9 +139,9 @@ def extract_anchor(df, spk_dic, num_anchor, num_pos):
 
   ## count # of episodes
   anchor_lst = []
-  for key, value in tqdm(anchor_word_dic.items()):
+  for key, value in anchor_word_dic.items():
      anchor_lst.extend(value)
-  print('len(anchor_lst) (# of episode) = ', len(anchor_lst))
+  print('# of episode = ', len(anchor_lst))
 
   return anchor_word_dic, anchor_lst
       
@@ -168,9 +166,7 @@ def make_hard_negative(anchor_word_dic, total_word_dic, num_neg, word_class):
   hard_neg_dic = defaultdict(list)
 
   anchor_values = list(itertools.chain(*list(anchor_word_dic.values())))
-  print('len(anchor_values) = ', len(anchor_values))
   anchor_values = list(set(anchor_values))
-  print('len(anchor_values) = ', len(anchor_values))
   for value in tqdm(anchor_values):
     ele_dic = {}
     for k_ele in list(total_word_dic.keys()):
@@ -424,17 +420,17 @@ def extract_short_phrase_from_csv(csv_file):
   result_lst = []
 
   ### extract word1
-  for k, v in tqdm(file_dic.items()):
+  for k, v in file_dic.items():
     for i in range(len(v)): 
       if v[i][2] in ['<unk>', '']:
         continue
       elif v[i][3] >= 0.5 and v[i][3] <= 2:
         word_dic = {'audio_filename': k, 'start': v[i][0], 'end': v[i][1], 'text': v[i][2], 'dur': v[i][3], 'class': 'word_1', 'speaker': dirname(k).split('/')[-2]}
         result_lst.append(word_dic)
-  print('word 1 len(result_lst) = ', len(result_lst))
+  print('# of short phrase rows (1 word) = ', len(result_lst))
 
   ### extract word2
-  for k, v in tqdm(file_dic.items()):
+  for k, v in file_dic.items():
     for i in range(len(v)-1):
       if v[i][2] in ['<unk>', '']:
         continue
@@ -443,10 +439,10 @@ def extract_short_phrase_from_csv(csv_file):
       elif float(v[i][3]) + float(v[i+1][3]) >= 0.5 and float(v[i][3]) + float(v[i+1][3]) <= 2:
         word_dic = {'audio_filename': k, 'start': v[i][0], 'end': v[i+1][1], 'text': ' '.join([v[i][2], v[i+1][2]]), 'dur': float(v[i][3]) + float(v[i+1][3]), 'class': 'word_2', 'speaker': dirname(k).split('/')[-2]}
         result_lst.append(word_dic)
-  print('word 2 len(result_lst) = ', len(result_lst))
+  print('# of short phrase rows (2 word) = ', len(result_lst))
 
   ### extract word3
-  for k, v in tqdm(file_dic.items()):
+  for k, v in file_dic.items():
     for i in range(len(v)-2):
       if v[i][2] in ['<unk>', '']:
         continue
@@ -457,10 +453,10 @@ def extract_short_phrase_from_csv(csv_file):
       elif float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]) >= 0.5 and float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]) <= 2:
         word_dic = {'audio_filename': k, 'start': v[i][0], 'end': v[i+2][1], 'text': ' '.join([v[i][2], v[i+1][2], v[i+2][2]]), 'dur': float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]), 'class': 'word_3', 'speaker': dirname(k).split('/')[-2]}
         result_lst.append(word_dic)
-  print('word 3 len(result_lst) = ', len(result_lst))
+  print('# of short phrase rows (3 word) = ', len(result_lst))
 
   ### extract word4
-  for k, v in tqdm(file_dic.items()):
+  for k, v in file_dic.items():
     for i in range(len(v)-3):
       if v[i][2] in ['<unk>', '']:
         continue
@@ -473,7 +469,7 @@ def extract_short_phrase_from_csv(csv_file):
       elif float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]) + float(v[i+3][3]) >= 0.5 and float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]) + float(v[i+3][3]) <= 2:
         word_dic = {'audio_filename': k, 'start': v[i][0], 'end': v[i+3][1], 'text': ' '.join([v[i][2], v[i+1][2], v[i+2][2], v[i+3][2]]), 'dur': float(v[i][3]) + float(v[i+1][3]) + float(v[i+2][3]) + float(v[i+3][3]), 'class': 'word_4', 'speaker': dirname(k).split('/')[-2]}
         result_lst.append(word_dic)
-  print('word 4 len(result_lst) = ', len(result_lst))
+  print('# of short phrase rows (4 word) = ', len(result_lst))
 
   df_short_phrase = pd.DataFrame(result_lst)
 

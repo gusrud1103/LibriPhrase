@@ -3,6 +3,7 @@ from collections import defaultdict
 from os.path import splitext, dirname
 from g2p_en import G2p
 import pandas as pd
+import time
 from utils import *
 
 
@@ -10,8 +11,8 @@ from utils import *
 
 def get_parser():
   parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--libripath', type=str, default='/LibriSpeech_ASR_corpus/', help='Folder for LibriSpeech ASR corpus with wav files')
-  parser.add_argument('--newpath', type=str, default='/LibriPhrase/', help='Folder to save generated LibriPhrase wav files')
+  parser.add_argument('--libripath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_clean_wav/', help='Folder for LibriSpeech ASR corpus with wav files')
+  parser.add_argument('--newpath', type=str, default='/home/hkshin/server_hdd/Database/LibriSpeech_testset_short_phrase/', help='Folder to save generated LibriPhrase wav files')
   parser.add_argument('--wordalign', type=str, default='./data/librispeech_other_train_500h_all_utt.csv', help='word alignment file (csv format)')
   parser.add_argument('--output', type=str, default='./data/testset_librispeech_other_train_500h_short_phrase.csv', help='output filename (csv format)')
   parser.add_argument('--numpair', type=int, default=3)
@@ -22,6 +23,8 @@ def get_parser():
 
 
 def main(args):
+
+  start_time = time.clock()
 
   rootpath = args.libripath
   rootpath_new = args.newpath
@@ -36,37 +39,38 @@ def main(args):
   num_neg = args.numpair
   mode = args.mode
 
+  print('Step 1 : Extract short phrase from LibriSpeech')
   df = extract_short_phrase_from_csv(word_alignment)
-  print('len(df) = ', len(df))
 
 
+  print('Step 2 : Make speaker dictionary from LibriSpeech')
   spk_dic = make_k_spk_dict(df, spk_k)
   g2p = G2p()
 
-  # extract 'anchor candidates'
+
+  print('Step 3 : Extract anchor candidates')
   anchor_word_dic, anchor_lst = extract_anchor(df, spk_dic, num_anchor, num_pos)
 
+
+  print('Step 4 : Extract positive and negative samples')
   for i in range(1, max_num_words + 1):
-    # confirm word_class
-    print('word class = ', i)
-     
     # extract 'df' and 'word_lst' which are only included word_class
+    print('-----extract df word class {}------'.format(i))
     df_word_class = extract_df_word_class(df, i)
     word = [row['text'] for idx, row in df_word_class.iterrows()]
     word_lst = list(set(word))
 
     # extract 'df_dic_key'
-    print('-----start making df_dic_key-------')
     df_dic_key = defaultdict(list)
     for idx, row in df_word_class.iterrows():
       df_dic_key[(dirname(row['audio_filename']).split('/')[-2], row['text'])].append(row)       
     
     # make positive 
-    print('-----start making positive-------')
+    print('-------start making positive-------')
     df_result_pos = make_positive(anchor_word_dic, df_dic_key, num_anchor, num_pos, mode, word_class=i)
     
     # make negative
-    print('-----start making negative-------')
+    print('-------start making negative-------')
     total_word_dic = extract_total_word(df, word_lst, g2p) 
     if mode in ['diffspk_hard', 'diffspk_all']:
       hard_neg_dic = make_hard_negative(anchor_word_dic, total_word_dic, num_neg, word_class=i)
@@ -81,14 +85,15 @@ def main(args):
     total_df = pd.concat([df_result_pos, df_result_neg], ignore_index=True)
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
-    print('-----start exporting wav files-------')
+    print('-----start exporting wav files------')
     total_df = save_wav(total_df, rootpath, rootpath_new, str(i) + 'word')
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
-    print('-----save csv file-------')
+    print('------------save csv file-----------')
     total_df.to_csv(splitext(output_filename)[0] + '_' + str(i) + 'word' + splitext(output_filename)[1], index=False)
-    print('finish {} word class'.format(i))    
-
+    print('finish {} word class'.format(i))   
+     
+    print('time check: ', (time.clock() - start_time) / (60 * 60), 'hours')
 
 if __name__ == '__main__':
   
