@@ -26,9 +26,9 @@ It is derived from LibriSpeech corpus.
   ├── ...
   ├── librispeech_other_train_500h_all_utt.csv
   ├── ...
-  ├── testset_librispeech_other_train_500h_short_phrase_1word.csv
+  ├── libriphrase_diffspk_all_1word.csv
   ├── ...
-  └── testset_librispeech_other_train_500h_short_phrase_4word.csv
+  └── libriphrase_diffspk_all_4word.csv
   
 /LibriSpeech_ASR_corpus/
   ├── dev-clean/
@@ -46,7 +46,7 @@ It is derived from LibriSpeech corpus.
                 └── 126228/
                     ├── 985-126228-0000.wav
                     ...
-/LibriPhrase/
+/LibriPhrase_diffspk_all/
   ├── dev-clean/
   ├── ...
   └── train-other-500/
