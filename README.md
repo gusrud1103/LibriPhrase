@@ -92,7 +92,7 @@ Finally, it will export wav files for the convenient usage. <br/>
 ```
 or
 ```
-python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 'new path(libriphrase wav files)' --input './data/librispeech_other_train_500h_all_utt.csv' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
+python3 libriphrase.py --libripath 'your path(librispeech wav files)' --newpath 'new path(libriphrase wav files)' --wordalign './data/librispeech_other_train_500h_all_utt.csv' --output './data/testset_librispeech_other_train_500h_short_phrase.csv' --numpair 3 --maxspk 1611 --maxword 4 --mode 'diffspk_all'
 ```
 #### Arguments
 * ```--libripath``` : Folder for LibriSpeech ASR corpus (wav files)
