@@ -116,7 +116,7 @@ def extract_anchor(df, spk_dic, num_anchor, num_pos):
 
   # extract anchor by counting words in each speaker (num_anchor + num_pos samples can be selected as anchor)
 
-  ## make word count dictionary for each speaker (in 500 speakers)
+  ## make word count dictionary for each speaker 
   word_cnt_dic = defaultdict(list)
   for idx, row in tqdm(df.iterrows()):
     spk_id = dirname(row['audio_filename']).split('/')[-2]
@@ -135,7 +135,7 @@ def extract_anchor(df, spk_dic, num_anchor, num_pos):
           print('word = ', word)
         if len(lst) >= num_pos:
           anchor_word_dic[key].append(word)
-  print('len(anchor_word_dic.keys()) = ', len(anchor_word_dic.keys()))
+  print('# of possible speaker that considering number of pairs = ', len(anchor_word_dic.keys()))
 
   ## count # of episodes
   anchor_lst = []
