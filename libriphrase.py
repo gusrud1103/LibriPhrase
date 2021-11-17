@@ -39,24 +39,32 @@ def main(args):
   num_neg = args.numpair
   mode = args.mode
 
-  print('Step 1 : Extract short phrase from LibriSpeech')
+  print('----------------------------------------------------')
+  print(' Step 1 : Extract short phrase from LibriSpeech')
+  print('----------------------------------------------------')
   df = extract_short_phrase_from_csv(word_alignment)
 
 
-  print('Step 2 : Make speaker dictionary from LibriSpeech')
+  print('----------------------------------------------------')
+  print(' Step 2 : Make speaker dictionary from LibriSpeech')
+  print('----------------------------------------------------')
   spk_dic = make_k_spk_dict(df, spk_k)
   g2p = G2p()
 
 
-  print('Step 3 : Extract anchor candidates')
+  print('----------------------------------------------------')
+  print(' Step 3 : Extract anchor candidates')
+  print('----------------------------------------------------')
   anchor_word_dic, anchor_lst = extract_anchor(df, spk_dic, num_anchor, num_pos)
 
 
-  print('Step 4 : Extract positive and negative samples')
+  print('----------------------------------------------------')
+  print(' Step 4 : Extract positive and negative samples')
+  print('----------------------------------------------------')
   for i in range(1, max_num_words + 1):
 
     # extract 'df' and 'word_lst' which are only included word_class
-    print('------extract df word class {}------'.format(i))
+    print('Step 4-1 : Extract df word class {}'.format(i))
     df_word_class = extract_df_word_class(df, i)
     word = [row['text'] for idx, row in df_word_class.iterrows()]
     word_lst = list(set(word))
@@ -67,11 +75,11 @@ def main(args):
       df_dic_key[(dirname(row['audio_filename']).split('/')[-2], row['text'])].append(row)       
     
     # make positive 
-    print('-------start making positive-------')
+    print('Step 4-2 : Start making positive')
     df_result_pos = make_positive(anchor_word_dic, df_dic_key, num_anchor, num_pos, mode, word_class=i)
     
     # make negative
-    print('-------start making negative-------')
+    print('Step 4-3 : Start making negative')
     total_word_dic = extract_total_word(df, word_lst, g2p) 
     if mode in ['diffspk_hard', 'diffspk_all']:
       hard_neg_dic = make_hard_negative(anchor_word_dic, total_word_dic, num_neg, word_class=i)
@@ -86,11 +94,11 @@ def main(args):
     total_df = pd.concat([df_result_pos, df_result_neg], ignore_index=True)
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
-    print('-----start exporting wav files------')
+    print('Step 4-4 : Start exporting wav files')
     total_df = save_wav(total_df, rootpath, rootpath_new, str(i) + 'word')
     total_df = total_df.sort_values(by=['anchor_spk', 'anchor_text', 'target', 'type', 'comparison_spk'], ascending=[True, True, True, True, True])
     total_df = total_df.reset_index(drop=True)
-    print('-----------save csv file------------')
+    print('Step 4-5 : Save csv file')
     total_df.to_csv(splitext(output_filename)[0] + '_' + str(i) + 'word' + splitext(output_filename)[1], index=False)
     print('* Finish {} word class'.format(i))   
      

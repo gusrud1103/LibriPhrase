@@ -18,7 +18,7 @@ def load_csv(filename):
 def make_dic(df_word):
   dic = {}
   audio_lst = list(set(list(set(df_word['anchor'])) + list(set(df_word['comparison']))))
-  for i in tqdm(range(0, len(audio_lst))):
+  for i in range(0, len(audio_lst)):
     dic[audio_lst[i]] = 0
   return dic
 
