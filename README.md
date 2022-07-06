@@ -136,12 +136,10 @@ Distributed under the MIT License. See ```LICENSE``` for more information.
 ## Citation
 If you use this code, please cite:
 ```
-@misc{libriphrase2021,
-  author = {Shin, Hyeon-Kyeong Shin and Han, Hyewon and Kim, Doyeon and Chung, Soo-Whan and Kang, Hong-Goo},
-  title = {LibriPhrase},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/gusrud1103/LibriPhrase}}
+@article{shin2022learning,
+  title={Learning Audio-Text Agreement for Open-vocabulary Keyword Spotting},
+  author={Shin, Hyeon-Kyeong and Han, Hyewon and Kim, Doyeon and Chung, Soo-Whan and Kang, Hong-Goo},
+  journal={arXiv preprint arXiv:2206.15400},
+  year={2022}
 }
 ```
