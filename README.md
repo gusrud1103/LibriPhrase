@@ -76,7 +76,7 @@ git clone https://github.com/gusrud1103/LibriPhrase.git
 cd LibriPhrase
 pip install -r requirements.txt
 ```
-Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1oUEOmINlwHVrT32b4XxQB3OkyEiL3buh?usp=sharing) and locate the files to data folder.
+Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1wfojzLc_RmYpjKoR89uneZbvSXgDTZDV?usp=sharing) and locate the files to data folder.
 ```
 mkdir data
 cd data      # locate csv files in this folder
