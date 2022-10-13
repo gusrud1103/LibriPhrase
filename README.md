@@ -136,10 +136,12 @@ Distributed under the MIT License. See ```LICENSE``` for more information.
 ## Citation
 If you use this code, please cite:
 ```
-@article{shin2022learning,
-  title={Learning Audio-Text Agreement for Open-vocabulary Keyword Spotting},
-  author={Shin, Hyeon-Kyeong and Han, Hyewon and Kim, Doyeon and Chung, Soo-Whan and Kang, Hong-Goo},
-  journal={arXiv preprint arXiv:2206.15400},
-  year={2022}
+@inproceedings{shin22_interspeech,
+  author={Hyeon-Kyeong Shin and Hyewon Han and Doyeon Kim and Soo-Whan Chung and Hong-Goo Kang},
+  title={{Learning Audio-Text Agreement for Open-vocabulary Keyword Spotting}},
+  year=2022,
+  booktitle={Proc. Interspeech 2022},
+  pages={1871--1875},
+  doi={10.21437/Interspeech.2022-580}
 }
 ```
