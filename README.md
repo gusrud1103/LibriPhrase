@@ -1,13 +1,18 @@
 # Recipe for LibriPhrase <img src="https://img.shields.io/github/license/gusrud1103/LibriPhrase"/></a>
+:loudspeaker: [09/02/23] We released an [official test dataset](https://drive.google.com/drive/folders/1pv3wVYzhSwDsL1dIQk93zmFBZg458ujE?usp=share_link) used in our paper. For the fair comparison, you may use this dataset.
+
 ## About the dataset
-LibriPhrase is an open source dataset for user-defined keyword spotting.
-It is derived from LibriSpeech corpus.
+"LibriPhrase" is an open-source dataset tailored for tasks like user-defined keyword spotting (UDKWS), open-vocabulary keyword spotting (OV-KWS), and spoken-term detection (STD). It is constructed based on the LibriSpeech corpus, and we adhere to the license terms of LibriSpeech.
+
+In this recipe, we have taken advantage of exceptional tools and libraries, listed as follows:
+
+
 * Source : LibriSpeech (ASR corpus) [1]
 * Alignment : Montreal Forced Aligner [2][3]
 * String distance metric : Levenshtein distance [4]
 * Unit : Phoneme-level (extract phoneme information from G2P [5])
 
-### Examples of LibriPhrase:
+### Examples of LibriPhrase
 |Anchor text|Easy negative text|Hard negative text|
 |----|----|----|
 |friend|guard<br/>comfort<br/>superior|frind<br/>rend<br/>trend|
@@ -69,24 +74,29 @@ This work is performed in this environment.
 * Linux Ubuntu 18.04
 
 ### 1. Preparation
-Before started, please prepare the [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
-If downloaded complete, clone the repository and install package dependencies as follows.
+Before you start, make sure to prepare the [LibriSpeech ASR corpus](https://www.openslr.org/12). <br/>
+Once the download is complete, proceed to clone this repository and install the package dependencies using the following steps:
+
 ```
 git clone https://github.com/gusrud1103/LibriPhrase.git
 cd LibriPhrase
 pip install -r requirements.txt
 ```
-Also, download alignment csv files from [Google Link](https://drive.google.com/drive/folders/1wfojzLc_RmYpjKoR89uneZbvSXgDTZDV?usp=sharing) and locate the files to data folder.
+Afterwards, download alignment CSV files from [Google Link](https://drive.google.com/drive/folders/1wfojzLc_RmYpjKoR89uneZbvSXgDTZDV?usp=sharing) and place the files into ```data``` folder.
 ```
 mkdir data
-cd data      # locate csv files in this folder
+cd data      # locate CSV files in this folder
 ```
 
-### 2. Process
-At first, it needs to extract short phrase(consists of 1\~4 words) from LibriSpeech, and then construct anchor, positive, negative for LibriPhrase. <br/>
-Especially, you can choose negative type(easy, hard) and speaker type(same, different) by adjusting ```mode``` argument. <br/>
-Finally, it will export wav files for the convenient usage. <br/>
-** When you use train-other-500 dataset, it will take around 2\~4 days depending on the ```mode```.
+### 2. Generating LibriPhrase
+This recipe is designed to extract short phrases (consisting of 1\~4 words) from the LibriSpeech dataset and organize them into three categories: anchor, positive, and negative. <br/>
+By controlling the ```mode``` argument in the script, you can customize the dataset's difficulty (easy/hard) and speaker type (same/different). <br/>
+The script will create a hierarchical folder structure based on both the LibriSpeech dataset and manual arguments (Please refer the data pipeline). <br/>
+
+You can use this recipe to generate test dataset. (We will also release the recipe for the training set soon.) <br/>
+To ensure a fair comparison with our paper, we offer [the official test dataset](https://drive.google.com/drive/folders/1pv3wVYzhSwDsL1dIQk93zmFBZg458ujE?usp=share_link).  <br/>
+We generated the test data from “train-other-500” of LibriSpeech.
+
 ```
 ./run.sh
 ```
