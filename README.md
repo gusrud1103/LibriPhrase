@@ -146,11 +146,11 @@ Distributed under the MIT License. See ```LICENSE``` for more information.
 ## Citation
 If you use this code, please cite:
 ```
-@inproceedings{shin22_interspeech,
+@inproceedings{Shin22LibriPhrase,
   author={Hyeon-Kyeong Shin and Hyewon Han and Doyeon Kim and Soo-Whan Chung and Hong-Goo Kang},
-  title={{Learning Audio-Text Agreement for Open-vocabulary Keyword Spotting}},
+  title={Learning Audio-Text Agreement for Open-vocabulary Keyword Spotting},
   year=2022,
-  booktitle={Proc. Interspeech 2022},
+  booktitle={INTERSPEECH},
   pages={1871--1875},
   doi={10.21437/Interspeech.2022-580}
 }
